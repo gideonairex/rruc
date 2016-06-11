@@ -4,7 +4,7 @@ import {
 	applyMiddleware,
 	compose
 } from 'redux';
-import todoReducer from './components/todo/reducers';
+import todoReducer from './modules/todo/reducers';
 import DevTools from './debug';
 
 // Initialize store

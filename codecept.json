@@ -1,0 +1,18 @@
+{
+  "tests": "./e2e-tests/tests/*-test.js",
+  "timeout": 10000,
+  "output": "./e2e-output",
+  "helpers": {
+    "WebDriverIO": {
+      "url": "http://localhost:9999",
+      "browser": "chrome"
+    }
+  },
+  "include": {
+    "I": "./e2e-tests/steps/steps-file.js",
+		"todoListPage": "./e2e-tests/pages/todo-list-page.js"
+  },
+  "bootstrap": false,
+  "mocha": {},
+  "name": "RRUC"
+}
