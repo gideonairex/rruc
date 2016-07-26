@@ -5,7 +5,8 @@ let config  = require( './webpack.config' );
 
 module.exports = Object.assign( {}, config, {
 	'devServer' : {
-		'port' : 9999
+		'port'               : 9999,
+		'historyApiFallback' : true
 	},
 	'plugins' : [
 		new webpack.DefinePlugin( {

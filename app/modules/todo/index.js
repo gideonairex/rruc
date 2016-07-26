@@ -5,7 +5,6 @@ import {
 import { connect } from 'react-redux';
 import TodoList from './components/list';
 import Add from './components/add';
-import resources from './resources';
 
 export class Todo extends React.Component {
 	constructor () {
@@ -44,9 +43,7 @@ export function mapsStateToProps ( state ) {
 export function mapsDispatchToProps ( dispatch ) {
 	return {
 		getTodos () {
-			resources
-				.getTodos()
-				.then( ( todos ) => dispatch( getTodos( todos ) ) );
+			dispatch( getTodos() );
 		}
 	};
 }

@@ -4,8 +4,10 @@ import {
 	applyMiddleware,
 	compose
 } from 'redux';
+import thunk from 'redux-thunk';
 import todoReducer from './modules/todo/reducers';
 import DevTools from './debug';
+import { routerReducer } from 'react-router-redux'
 
 // Initialize store
 let store;
@@ -25,14 +27,17 @@ export default ( initialState = defaultState ) => {
 
 	// List all reducers
 	let reducers = {
-		todoReducer
+		todoReducer,
+		'routing' : routerReducer
 	};
 
 	/** List all middlewares to add
 	 * example:
 	 * let plugins = [ applyMiddleware() ];
 	 */
-	let plugins = [];
+	let plugins = [
+		applyMiddleware( thunk )
+	];
 
 	if ( process.env.NODE_ENV === 'development' ) {
 		plugins.push( DevTools.instrument() );

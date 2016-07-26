@@ -4,6 +4,7 @@ import {
 	DELETE_TODO,
 	GET_TODOS
 } from '../../../constants';
+import resources from '../resources';
 
 export function addTodo ( todo ) {
 	return {
@@ -27,9 +28,13 @@ export function deleteTodo ( id ) {
 	};
 }
 
-export function getTodos ( todos ) {
-	return {
-		'type' : GET_TODOS,
-		todos
-	};
+export function getTodos () {
+	return dispatch => {
+		resources
+			.getTodos()
+			.then( ( todos ) => dispatch( {
+				'type' : GET_TODOS,
+				todos
+			} ) );
+	}
 }
