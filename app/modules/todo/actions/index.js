@@ -36,5 +36,5 @@ export function getTodos () {
 				'type' : GET_TODOS,
 				todos
 			} ) );
-	}
+	};
 }

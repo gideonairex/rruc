@@ -15,7 +15,7 @@ module.exports = {
 
 	goToPage () {
 		I.amOnPage( '/' );
-		I.see( 'Our List' );
+		I.see( 'Todo List!' );
 	},
 
 	addTodo ( todo ) {

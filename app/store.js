@@ -7,7 +7,8 @@ import {
 import thunk from 'redux-thunk';
 import todoReducer from './modules/todo/reducers';
 import DevTools from './debug';
-import { routerReducer } from 'react-router-redux'
+import { routerMiddleware, routerReducer } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 
 // Initialize store
 let store;
@@ -36,7 +37,8 @@ export default ( initialState = defaultState ) => {
 	 * let plugins = [ applyMiddleware() ];
 	 */
 	let plugins = [
-		applyMiddleware( thunk )
+		applyMiddleware( thunk ),
+		applyMiddleware( routerMiddleware( browserHistory ) )
 	];
 
 	if ( process.env.NODE_ENV === 'development' ) {

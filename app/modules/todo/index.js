@@ -5,6 +5,7 @@ import {
 import { connect } from 'react-redux';
 import TodoList from './components/list';
 import Add from './components/add';
+import { push } from 'react-router-redux';
 
 export class Todo extends React.Component {
 	constructor () {
@@ -20,7 +21,8 @@ export class Todo extends React.Component {
 			<div className="container-fluid">
 				<div className="row text-center">
 					<div className="col-md-offset-3 col-xs-6 col-md-offset-3">
-						<h1>{ this.props.name }!</h1>
+						<h1>Todo List!</h1>
+						<h3 onClick={ this.props.goToTest }> Go to test </h3>
 						<br />
 						<Add />
 					</div>
@@ -44,6 +46,9 @@ export function mapsDispatchToProps ( dispatch ) {
 	return {
 		getTodos () {
 			dispatch( getTodos() );
+		},
+		goToTest () {
+			dispatch( push( '/test' ) );
 		}
 	};
 }

@@ -8,6 +8,10 @@
 * redux
 * react-redux
 
+### Router
+* react-router
+* react-router-redux
+
 ### Webpack
 * babel-core
 * babel-loader
