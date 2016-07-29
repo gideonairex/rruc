@@ -14,7 +14,10 @@ if ( process.env.NODE_ENV === 'development' ) {
 
 ReactDOM.render(
 	<Provider store={ store() } >
-		{ routes }
+		<div>
+			{ tools }
+			{ routes }
+		</div>
 	</Provider>,
 	document.getElementById( 'app' )
 );
