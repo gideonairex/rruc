@@ -13,15 +13,8 @@ import { browserHistory } from 'react-router';
 // Initialize store
 let store;
 
-// Default value for root store
-//const defaultState = {
-	//'todoReducer' : {
-		//'todos' : []
-	//}
-//};
-
 // Return a function so we can configure it
-export default ( /* initialState = defaultState */ ) => {
+export default () => {
 	if ( store ) {
 		return store;
 	}

@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {
+	TextField
+} from 'material-ui';
 
 export class Test extends React.Component {
 	constructor () {
@@ -19,7 +22,7 @@ export class Test extends React.Component {
 
 			state[ field ] = e.target.value;
 			this.setState( state );
-		}
+		};
 	}
 
 	render () {
@@ -28,8 +31,9 @@ export class Test extends React.Component {
 		return (
 			<div className="container-fluid">
 				{ lastEdit }
-				<input type="text" value={ this.state.search } onChange={ this.onChange( 'search' ).bind( this ) }/>
-				<input type="text" value={ this.state.name } onChange={ this.onChange( 'name' ).bind( this ) }/>
+				<br />
+				<TextField hintText="Search" id="search" defaultValue={ this.state.search } onChange={ this.onChange( 'search' ).bind( this ) }/>
+				<TextField hintText="Name" id="name" defaultValue={ this.state.name } onChange={ this.onChange( 'name' ).bind( this ) }/>
 			</div>
 		);
 	}

@@ -5,16 +5,22 @@ import store from './store';
 
 const history = syncHistoryWithStore( browserHistory, store() );
 
+/* Layouts */
+import Plain from './layouts/plain';
+import Dashboard from './layouts/dashboard';
+
 /* App components */
 import Todo from './modules/todo';
 import Test from './modules/test';
 
 export default (
     <Router history={ history }>
-        <Route path="/">
+        <Route path="/" component={ Dashboard }>
             <IndexRedirect to="todo"/>
             <Route path="todo" component={ Todo }/>
-            <Route path="test" component={ Test }/>
         </Route>
+        <Route path="/test" component={ Plain }>
+					<IndexRoute component={ Test } />
+				</Route>
     </Router>
 );

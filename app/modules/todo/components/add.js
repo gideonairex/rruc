@@ -3,9 +3,13 @@ import {
 	addTodo,
 	getTodos
 } from '../actions';
+import {
+	TextField
+} from 'material-ui';
 import { v4 } from 'node-uuid';
 import { connect } from 'react-redux';
 import resources from '../resources';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export class Add extends React.Component {
 	constructor () {
@@ -31,10 +35,10 @@ export class Add extends React.Component {
 		return (
 			<div>
 				<div className="col-xs-11">
-					<input className="form-control" type="text" value={ this.state.addItem } onChange={ this.changeValue( 'addItem' ) } id="todo-name" />
+					<TextField name="add-item" defaultValue={ this.state.addItem } onChange={ this.changeValue( 'addItem' ) } id="todo-name" />
 				</div>
 				<div className="col-xs-1">
-					<button className="btn btn-default btn-primary" id="add-todo" onClick={ this.props.handleClick.bind( this ) }>Add</button>
+					<RaisedButton label="Add" id="add-todo" onClick={ this.props.handleClick.bind( this ) } />
 				</div>
 			</div>
 		);
@@ -47,28 +51,13 @@ export function mapsDispatchToProps ( dispatch ) {
 			let name = this.state.addItem;
 			let id   = v4();
 
-			resources
-				.addTodo( {
-					id,
-					name
-				} )
-				.then( () => {
-					// Dispatch
-					dispatch( addTodo( {
-						id,
-						name
-					} ) );
-
-					// Get full list again
-					return resources.getTodos();
-				} )
-				.then( ( todos ) => {
-					dispatch( getTodos( todos ) );
-
-					this.setState( {
-						'addItem' : ''
-					} );
-				} );
+			dispatch( addTodo( {
+				id,
+				name
+			} ) );
+			this.setState( {
+				'addItem' : ''
+			} );
 		}
 	};
 }

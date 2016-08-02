@@ -7,8 +7,8 @@ import {
 import _ from 'lodash';
 // Test store for reducer
 const todoDefaultState = {
-	'todos'     : [],
-	'lastEdit'  : {
+	'todos'    : [],
+	'lastEdit' : {
 		'id'   : '',
 		'name' : ''
 	},

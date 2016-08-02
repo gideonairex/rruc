@@ -58,26 +58,14 @@ export function mapsDispatchToProps ( dispatch ) {
 	return {
 		// When clicked edit
 		save () {
-			resources
-				.editTodo( this.props.todoId, {
-					'name' : this.state.name
-				} )
-				.then( () => {
-					// Update last edit
-					dispatch( editTodo( this.props.todoId, {
-						'id'   : this.props.todoId,
-						'name' : this.state.name
-					} ) );
+			// Update last edit
+			dispatch( editTodo( this.props.todoId, {
+				'id'   : this.props.todoId,
+				'name' : this.state.name
+			} ) );
 
-					// Get full list again
-					return resources.getTodos();
-				} )
-				.then( ( todos ) => {
-					dispatch( getTodos( todos ) );
-
-					// Return mode
-					this.changeEditMode( false )();
-				} );
+			// Return mode
+			this.changeEditMode( false )();
 		}
 	};
 }
