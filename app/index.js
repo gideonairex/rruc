@@ -12,6 +12,8 @@ import routes from './routes';
 
 injectTapEventPlugin();
 
+import '!style!css!sass!./styles/app.scss';
+
 // Check if environment is in development
 let tools;
 
