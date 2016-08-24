@@ -18,6 +18,7 @@
 * babel-preset-es2015
 * babel-preset-react
 * babel-preset-stage-0
+* babel-polyfill
 * webpack-dev-server
 * webpack
 * react-hot-loader

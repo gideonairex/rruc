@@ -1,3 +1,9 @@
+$alignment: center;
+
 body {
 	/*color: red;*/
+}
+
+.center-now {
+	text-align: $alignment;
 }

@@ -7,46 +7,56 @@ import {
 import resources from '../resources';
 
 export function getTodos () {
-	return dispatch => {
-		resources
-			.getTodos()
-			.then( ( todos ) => dispatch( {
+	return async dispatch => {
+		try {
+			// Get todos
+			let todos = await resources.getTodos();
+
+			dispatch( {
 				'type' : GET_TODOS,
 				todos
-			} ) );
+			} );
+		} catch ( error ) {
+			/* Do something with error */
+		}
 	};
 }
 
 export function addTodo ( todo ) {
-	return dispatch => {
-		resources
-			.addTodo( todo )
-			.then( () => {
-				dispatch( {
-					'type' : ADD_TODO,
-					todo
-				}  );
-				// Get todos
-				dispatch( getTodos() );
-			} );
+	return async dispatch => {
+		try {
+			await resources.addTodo( todo );
+			// send event for add todo
+			dispatch( {
+				'type' : ADD_TODO,
+				todo
+			}  );
+			// send event for get todos
+			dispatch( getTodos() );
+		} catch ( error ) {
+			/* Do something with error */
+		}
 	};
 }
 
 export function editTodo ( id, todo ) {
-	return dispatch => {
-		resources
-			.editTodo( id, {
-				'name' : todo.name
-			} )
-			.then( () => {
-				dispatch( {
-					'type' : EDIT_TODO,
-					id,
-					todo
+	return async dispatch => {
+		try {
+			await resources
+				.editTodo( id, {
+					'name' : todo.name
 				} );
-				// Get todos
-				dispatch( getTodos() );
+			// send event for edit todo
+			dispatch( {
+				'type' : EDIT_TODO,
+				id,
+				todo
 			} );
+			// Get todos
+			dispatch( getTodos() );
+		} catch ( error ) {
+			/* Do something with error */
+		}
 	};
 }
 

@@ -10,6 +10,9 @@ import { v4 } from 'node-uuid';
 import { connect } from 'react-redux';
 import resources from '../resources';
 import RaisedButton from 'material-ui/RaisedButton';
+import {
+	Col
+} from 'react-bootstrap';
 
 export class Add extends React.Component {
 	constructor () {
@@ -34,12 +37,12 @@ export class Add extends React.Component {
 	render () {
 		return (
 			<div>
-				<div className="col-xs-11">
+				<Col xs={11}>
 					<TextField name="add-item" defaultValue={ this.state.addItem } onChange={ this.changeValue( 'addItem' ) } id="todo-name" />
-				</div>
-				<div className="col-xs-1">
+				</Col>
+				<Col xs={1}>
 					<RaisedButton label="Add" id="add-todo" onClick={ this.props.handleClick.bind( this ) } />
-				</div>
+				</Col>
 			</div>
 		);
 	}

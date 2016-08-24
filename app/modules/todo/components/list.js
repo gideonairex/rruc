@@ -1,5 +1,8 @@
 import React from 'react';
 import TodoItem from './todo-item';
+import {
+	Col
+} from 'react-bootstrap';
 
 export class TodoList extends React.Component {
 	constructor () {
@@ -12,11 +15,11 @@ export class TodoList extends React.Component {
 		} );
 
 		return (
-			<div className="col-xs-12 text-left">
+			<Col xs={12}>
 				<ul className="list-unstyled">
 					{ todos }
 				</ul>
-			</div>
+			</Col>
 		);
 	}
 }

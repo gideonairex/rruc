@@ -7,6 +7,11 @@ import TodoList from './components/list';
 import Add from './components/add';
 import Test from '../test';
 import { push } from 'react-router-redux';
+import {
+	Grid,
+	Row,
+	Col
+} from 'react-bootstrap';
 
 export class Todo extends React.Component {
 	constructor () {
@@ -24,21 +29,21 @@ export class Todo extends React.Component {
 		};
 
 		return (
-			<div className="container-fluid">
-				<div className="row text-center">
-					<div className="col-md-offset-3 col-xs-6 col-md-offset-3">
+			<Grid>
+				<Row bsClass="center-now">
+					<Col md={3} xs={6} mdOffset={3}>
 						<h1>Todo List!</h1>
 						<h3 onClick={ this.props.goToTest }> Go to test </h3>
 						<Test { ...testParams } />
 						<br />
 						<Add />
-					</div>
+					</Col>
 					<br />
-					<div className="col-md-offset-3 col-xs-6 col-md-offset-3">
+					<Col md={3} xs={6} mdOffset={3}>
 						<TodoList todos={ this.props.todos }/>
-					</div>
-				</div>
-			</div>
+					</Col>
+				</Row>
+			</Grid>
 		);
 	}
 }

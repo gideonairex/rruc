@@ -13,10 +13,7 @@ module.exports = {
 	 * Entry point for transpiling
 	 *
 	 */
-	'entry' : {
-		'javascript' : './index.js',
-		'html'       : './index.html'
-	},
+	'entry' : [ 'babel-polyfill', './index.js', './index.html' ],
 
 	/**
 	 * Output of the transpiled code
