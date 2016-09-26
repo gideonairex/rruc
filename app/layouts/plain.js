@@ -6,17 +6,17 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 
 class Plain extends React.Component {
 
-	componentWillMount() {
-    this.state = {
-      value: 3,
-    };
+	componentWillMount () {
+		this.state = {
+			'value' : 3
+		};
 	}
 
-  handleChange (event, index, value) {
+	handleChange ( event, index, value ) {
 		this.setState( { value } );
 	}
 

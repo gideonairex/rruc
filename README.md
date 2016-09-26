@@ -34,6 +34,11 @@
 * webdriverio
 * codeceptjs
 
+#### Installing selenium
+* npm install selenium-standalone@latest -g
+* selenium-standalone install
+* selenium-standalone start
+
 ### Lint
 * eslint
 * eslint-plugin-react
@@ -58,3 +63,10 @@ User react-devtools extension
   * redux-devtools
   * redux-devtools-log-monitor
   * redux-slider-monitor
+
+### Package check
+* npm-check-updates
+
+#### Usage
+* ncu
+* ncu -u
