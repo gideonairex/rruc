@@ -19,7 +19,7 @@ export default (
             <IndexRedirect to="todo"/>
             <Route path="todo" component={ Todo }/>
         </Route>
-        <Route path="/test" component={ Plain }>
+        <Route path="/test/me" component={ Plain }>
 					<IndexRoute component={ Test } />
 				</Route>
     </Router>

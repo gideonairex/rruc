@@ -38,7 +38,6 @@ export class Todo extends React.Component {
 						<br />
 						<Add />
 					</Col>
-					<br />
 					<Col md={3} xs={6} mdOffset={3}>
 						<TodoList todos={ this.props.todos }/>
 					</Col>

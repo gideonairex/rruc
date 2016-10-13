@@ -1,5 +1,6 @@
 'use strict';
 
+const path  = require( 'path' );
 let webpack = require( 'webpack' );
 let config  = require( './webpack.config' );
 
